@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #FFFFFF; /* white */
+    --color-foreground: #111827; /* gray-900 */
+    --color-border: #E5E7EB; /* gray-200 */
+    --color-input: #FFFFFF; /* white */
+    --color-ring: #3B82F6; /* blue-500 */
+    
+    /* Card & Surface Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #111827; /* gray-900 */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #111827; /* gray-900 */
+    --color-muted: #F9FAFB; /* gray-50 */
+    --color-muted-foreground: #6B7280; /* gray-500 */
+    
+    /* Brand Primary Colors - Updated to match screenshot */
+    --color-primary: #E53E3E; /* red-500 matching screenshot */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #3B82F6; /* blue-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* State Colors */
+    --color-destructive: #E53E3E; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    --color-accent: #10B981; /* emerald-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #E53E3E; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Brand Specific Colors - Updated to match screenshot */
+    --color-life-force: #E53E3E; /* red-500 matching screenshot */
+    --color-trust-blue: #3B82F6; /* blue-500 */
+    --color-success-green: #10B981; /* emerald-500 */
+    --color-surface: #F9FAFB; /* gray-50 */
+    --color-text-primary: #111827; /* gray-900 */
+    --color-text-secondary: #6B7280; /* gray-500 */
+    --color-cta-deep: #C53030; /* red-600 - darker shade for hover states */
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .font-accent {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  /* Hero Impact Animations */
+  .hero-pulse {
+    animation: hero-pulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes hero-pulse {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 1; }
+    50% { transform: translate3d(0, -2px, 0) scale(1.02); opacity: 0.95; }
+  }
+  
+  /* Impact Counter Animations */
+  .counter-animate {
+    animation: counter-glow 2.5s ease-out forwards;
+  }
+  
+  @keyframes counter-glow {
+    0% { color: #6B7280; transform: scale(1); }
+    50% { color: #E53E3E; transform: scale(1.05); }
+    100% { color: #E53E3E; transform: scale(1); }
+  }
+  
+  /* Emergency Pulse System */
+  .emergency-pulse {
+    animation: emergency-pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes emergency-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(229, 62, 62, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
+  }
+  
+  /* Magnetic CTA Effects */
+  .cta-magnetic {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .cta-magnetic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(229, 62, 62, 0.2);
+  }
+  
+  /* Flowing Transitions */
+  .flow-transition {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Card Morphing Effects */
+  .card-morph {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-morph:hover {
+    transform: perspective(1000px) rotateX(5deg);
+    background: linear-gradient(135deg, rgba(229, 62, 62, 0.02) 0%, rgba(59, 130, 246, 0.02) 100%);
+  }
+  
+  /* Progress Momentum */
+  .progress-momentum {
+    transition: width 0.5s ease-out;
+  }
+  
+  /* Social Proof Slide */
+  .social-slide {
+    animation: slide-in-bottom 0.5s ease-out forwards;
+  }
+  
+  @keyframes slide-in-bottom {
+    0% { transform: translateY(100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Celebration Confetti */
+  .celebration-trigger {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Organic Flow Elements */
+  .organic-flow {
+    background: linear-gradient(135deg, rgba(229, 62, 62, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+    border-radius: 16px;
+  }
+  
+  /* Trust Signal Glow */
+  .trust-glow:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+}
+
+@layer utilities {
+  /* Brand Spacing System */
+  .space-brand-xs { @apply space-y-2; }
+  .space-brand-sm { @apply space-y-3; }
+  .space-brand-md { @apply space-y-5; }
+  .space-brand-lg { @apply space-y-8; }
+  .space-brand-xl { @apply space-y-12; }
+  
+  /* Typography Utilities */
+  .text-life-force { color: var(--color-life-force); }
+  .text-trust-blue { color: var(--color-trust-blue); }
+  .text-success-green { color: var(--color-success-green); }
+  .text-cta-deep { color: var(--color-cta-deep); }
+  
+  /* Background Utilities */
+  .bg-life-force { background-color: var(--color-life-force); }
+  .bg-trust-blue { background-color: var(--color-trust-blue); }
+  .bg-success-green { background-color: var(--color-success-green); }
+  .bg-surface { background-color: var(--color-surface); }
+  
+  /* Border Utilities */
+  .border-life-force { border-color: var(--color-life-force); }
+  .border-trust-blue { border-color: var(--color-trust-blue); }
+  .border-success-green { border-color: var(--color-success-green); }
+  
+  /* Shadow Utilities */
+  .shadow-brand { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+  .shadow-brand-lg { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+  .shadow-brand-xl { box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); }
+  
+  /* Animation Utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Responsive Typography */
+  .text-hero {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+  
+  .text-impact {
+    @apply text-2xl md:text-3xl lg:text-4xl font-semibold;
+  }
+  
+  .text-value {
+    @apply text-lg md:text-xl font-medium;
+  }
+}
